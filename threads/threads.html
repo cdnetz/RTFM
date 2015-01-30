@@ -1,0 +1,25 @@
+{{test}}
+
+<p><input type="text" ng-model="thisIsTest" /> </p>
+
+<p>{{thisIsTest}} </p>
+
+<div>
+    <p>Threads</p>
+
+    <form name="newThreadForm">
+        <input type="text" ng-model="newThreadTitle" placeholder="New thread title..." required/>
+        <button ng-disabled="newThreadForm.$invalid" ng-click="createThread(newThreadTitle)">Add Thread</button>
+        	<!-- sets whatever is in textbox to newThreadTitle, when clicked you're passing in newThreadTitle to the createThread function. Create thread function takes in the text box data as it's only paramater as title and sets it equal to createThread.title -->
+
+    </form>
+
+    <ul>
+        <li ng-repeat="thread in threads">
+            <a ng-href="#/thread/{{thread.$id}}">
+                <span>{{ thread.title }}</span>
+                <span>(by {{ thread.username }})</span>
+            </a>
+        </li>
+    </ul>
+</div>
